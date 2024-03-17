@@ -1,0 +1,111 @@
+/*estilos de la barra*/
+.conte_header {
+  position: fixed;
+  background-color: #082D5E;
+  height: 70px;
+  width: 100%;
+  float: top;
+  left: 0;
+  overflow:hidden;
+  z-index: 200;
+}
+
+.conte_barra {
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 10px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.ZONAE {
+ width: flex;
+}
+
+.nav-menu {
+  display: flex;
+  margin-right: 40px;
+  list-style: none;
+}
+
+.menu-item {
+  font-size: 18px;
+  margin: 0 10px;
+  line-height: 80px;
+  text-transform: uppercase;
+  width: max-content;
+}
+
+.nav-menu-link {
+  padding: 8px 12px;
+  border-radius: 3px;
+}
+
+.nav-menu-link:hover,
+.nav-menu-link_active {
+  background-color: #FB3AC6;
+  transition: 0.5s;
+}
+
+/* TOGGLE */
+.nav-toggle {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 30px;
+  padding: 0 20px;
+  line-height: 60px;
+  cursor: pointer;
+
+  display: none;
+}
+
+
+/* footer pie*/
+footer{
+  display: flex;
+  position:relative;
+  background: #082D5E;
+  width: 100%;
+  height: 200px;
+  align-items: center;
+  margin-top: auto;
+  
+}
+
+.conte-footer{
+  margin-top: 10px;
+  position: absolute;
+  overflow: hidden;
+  right: 40px;
+
+}
+.conte-footer1{
+  position: absolute;
+  overflow: hidden;
+  right: 220px;
+}
+.con{
+  display: flex;
+  margin: 20px;
+  overflow: hidden;
+ 
+}
+.lis-conte li a{
+  display: block;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}
+.contatar{
+  margin-top: 10px;
+  color: white;
+  font-size: 20px;
+}

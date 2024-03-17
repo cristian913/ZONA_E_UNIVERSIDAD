@@ -1,0 +1,28 @@
+ /* Estilo para el tooltip */
+        #tooltip {
+            display: none;
+            position: absolute;
+            background-color: #e9e9e9;
+            color: #080808;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Estilo para el panel de preguntas frecuentes */
+        #faqPanel {
+            display: none;
+            background-color: #e5ebe8;
+            border: 1px solid #0f0f0f;
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute;
+        }
+        #pregunta1{
+            width: 50%;
+            height: 300px;
+        }
+
+        /* Estilo para los elementos de la lista de preguntas frecuentes */
+        .faqItem {
+            margin-bottom: 5px;
+        }
