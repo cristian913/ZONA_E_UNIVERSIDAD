@@ -342,66 +342,250 @@ a{
   top: 100px;
 }
 
-.image{
-  position: absolute;
-  border:5px solid blue;
+
+
+
+/*formulario de registro de registro*/
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.image {
   width: 50%;
-  height: 98%;
-  top:30;
-  left: 40;
-}
-.botton{
-  padding: 8px 10px;
-  background: #FB3AC6;
-  color: white;
-  font-size: 23px;
-  border-radius: 12px;
-  margin: 20px;
+  border: 1px solid #cccccc;
 }
 
-.caja{
-  margin: 2px;
+.formu {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ico, .conte {
+  text-align: center;
+}
+
+.titulo {
+  font-size: 30px;
+  margin: 0;
+}
+
+.titulo1 {
+  font-size: 30px;
+  margin: 0;
+  color: #082D5E;
+}
+
+.ico1 {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.ico1 i {
+  font-size: 40px;
+}
+
+.titulo2 {
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.selector {
+  background-color: #f2f2f2;
+  border: 1px solid #cccccc;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.selector:hover {
+  background-color: #e0e0e0;
+}
+
+.formularios {
+  width: 100%;
+}
+
+.input-contenedor {
+  margin: 10px 0;
+}
+
+.caja {
+  width: 100%;
   padding: 10px;
-  border-radius: 20px;
-  border: 3px solid gray;
-  font-size: 20px;
-
-
+  border: 1px solid #cccccc;
+  border-radius: 5px;
 }
 
+.terminos-text {
+  font-size: 12px;
+  color: #666666;
+  margin: 10px 0;
+}
 
-.ico1{
-  position: relative;
-  display:block;
-  font-size: 60px;
+.botton {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff007f;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.botton:hover {
+  background-color: #cc0066;
+}
+
+.already-have-account {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.link {
+  color: #082D5E;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.image {
+  width: 60%;
+  border: 1px solid #cccccc;
+}
+
+.formu {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ico, .conte {
   text-align: center;
-  top: 0px;
-}
-.ico{
-  position: relative;
-  text-align: center;
-  font-size: 60px;
 }
 
-.formu{
-  border: 3px solid gray;
-  display: block;
-  position: absolute;
-  text-align: center;
-  width: 45%;
-  height: 98%;
-  right:0;
-  top: 30;
+.titulo {
+  font-size: 30px;
+  margin: 0;
 }
 
-.conte_inicio{
-  width:100%;
-
-  float: top
+.titulo1 {
+  font-size: 30px;
+  margin: 0;
+  color: #082D5E;
 }
 
+.ico1 {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.ico1 i {
+  font-size: 40px;
+}
+
+.titulo2 {
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.selector {
+  background-color: #f2f2f2;
+  border: 1px solid #cccccc;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.selector:hover {
+  background-color: #e0e0e0;
+}
+
+.formularios {
+  width: 100%;
+}
+
+.input-contenedor {
+  margin: 10px 0;
+}
+
+.caja {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+}
+
+.terminos-text {
+  font-size: 12px;
+  color: #666666;
+  margin: 10px 0;
+}
+
+.botton {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff007f;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.botton:hover {
+  background-color: #cc0066;
+}
+
+.already-have-account {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.link {
+  color: #082D5E;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
 .ok{
-  top: 5px;
+  bottom: 0px;
   position: absolute;
   text-align: center;
   width: 100%;
@@ -410,7 +594,7 @@ a{
   color: #fff
 }
 .bad{
-  top: 5px;
+  bottom: 0px;
   position: absolute;
   text-align: center;
   width: 100%;
@@ -418,69 +602,73 @@ a{
   background: red;
   color: #fff
 }
-.malo{
+.error{
   position:absolute;
-  float: top;
+  bottom: 0px;
   text-align: center;
   width: 100%;
   padding: 12px;
   background: red;
   color: #fff
 }
-.cajaa{
-  height: 600px;
-  background: red;
-position: relative;
-top: 200px;
-}
-
-
-
-
-/* administrador*/
-.container {
-        min-width: 992px!important
-    }
-
-.card {
-    ay: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    /* min-width:0; */
-    /* word-wrap:break-word; */
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25remposition: relative;
-    display: -ms-flexbox;
-    displ
-}
-
-.card-header {
-    padding: .75rem 1.25rem;
-    margin-bottom: 0;
-    color: inherit;
-    background-color: rgba(0,0,0,.03);
-    border-bottom: 1px solid rgba(0,0,0,.125)
-}
-
-.card-body {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 1.25rem
-}
-.form-group {
-    margin-bottom: 1rem
-}
-.navbar {
-    position: relative;
-    display: -ms-flexbox;
+/********************diseño preguntas frecuentes***************************/
+.bodyy {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
     display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -ms-flex-align: center;
+    justify-content: center;
     align-items: center;
-    -ms-flex-pack: justify;
+    height: 100vh;
+}
+
+.faq-container {
+    width: 80%;
+    background-color: white;
+    padding: 80px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-container h2 {
+    text-align: center;
+}
+
+.faq-container p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.faq-question {
+    background-color: #f9f9f9;
+    padding: 15px;
+    display: flex;
     justify-content: space-between;
-    padding: .5rem 1rem
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    background-color: white;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.toggle-btn:focus {
+    outline: none;
 }

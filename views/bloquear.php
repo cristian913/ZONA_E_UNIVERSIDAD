@@ -13,7 +13,7 @@ if( $validar == null || $validar = ''){
 
 $id= $_GET['id'];
 $estado= $_GET['estado'];
-$conexion= mysqli_connect("localhost", "root", "", "registrosss");
+$conexion= mysqli_connect("localhost", "root", "", "zonae");
 $consulta= "SELECT * FROM user WHERE id = $id";
 $resultado = mysqli_query($conexion, $consulta);
 $usuario = mysqli_fetch_assoc($resultado);

@@ -1,26 +1,8 @@
+
 <?php
-
-session_start();
-error_reporting(0);
-
-$validar = $_SESSION['correo'];
-
-if( $validar == null || $validar = ''){
-
-  header("Location:iniciosession.php");
-  die();
-  
-}
-
-
-?>
-<?php
-
-
-
 
 $id= $_GET['id'];
-$conexion= mysqli_connect("localhost", "root", "", "registrosss");
+$conexion= mysqli_connect("localhost", "root", "", "zonae");
 $consulta= "SELECT * FROM user WHERE id = $id";
 $resultado = mysqli_query($conexion, $consulta);
 $usuario = mysqli_fetch_assoc($resultado);
@@ -35,90 +17,38 @@ $usuario = mysqli_fetch_assoc($resultado);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>INICIO WEB</title>
 
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/publicacionesindex.css" />
     <link rel="stylesheet" href="css/barra.css" />
     <script src="https://kit.fontawesome.com/87dae9917c.js" crossorigin="anonymous"></script>
     <script defer src="codigo/codigo.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="codigo/jquery.jscroll.js"></script>
 </head>
 <body>
- <header class="conte_header"   method="POST">
-  
-     <nav class="conte_barra">
-        
-        <a href="inicio.html" class="ZONAE nav-link"><i class="fa-solid fa-house" style="color: #ffffff;
-        margin-right: 10px;"></i>ZONA E</a>
+ <?php
+    include("barrausuario.php");
+?>
+  <!-- codigo scroll -->
+          <div class="scroll">
+            <?php require_once 'publicacionesindex.php'; ?>
+          </div>
 
-        <button class="nav-toggle" aria-label="Abrir menú">
-          <i class="fas fa-bars"></i>
-        </button>
-        <ul class="nav-menu">
-          <li class="menu-item">
-            <a href="arrienda.php" class="nav-menu-link nav-link">Arrienda</a>
-          </li>
-          <li class="menu-item">
-            <a href="#" class="nav-menu-link nav-link">Publicar</a>
-          </li>
-            <li class="menu-item">
-            <a href="ayuda.php" class="nav-menu-link nav-link">ayuda</a>
-          </li>
-          <li class="menu-item">
-          
+            <script>
+            //Simple codigo para hacer la paginacion scroll
+            $(document).ready(function() {
+              $('.scroll').jscroll({
+                loadingHtml: '<img src="image/invisible.png" alt="Loading" />'
+            });
+            });
+            </script>
+          <!-- codigo scroll -->
 
-            <a href="perfil.php?id=<?php echo $id?>" class="nav-menu-link nav-link nav-menu-link_active"
-              >pefil </a
-            >
-          </li>
-     
-          
-
-        </ul>
-        
-      </nav>
-   
-     
-    </header>
-
-  <nav class="cajaa">
-
-<a href="logout.php">Cerrar Sesión</a>
-
-    
-  </nav>
      
         
 
-    <footer>
-      
-      <nav class="con">
-        <a href="inicio.html" class="ZONAE nav-link"><i class="fa-solid fa-house" style="color: #ffffff;margin: 30px;"></i>ZONA E</a>
-      </nav >
-      <nav class="conte-footer1">
-       <ul class="lis-conte">
-         <li>
-           <a href="">preguntas frecuentes</a>
-           <a href="terminos_condiciones.php">terminos y condiciones</a>
-           <a href="">politicas privacidad</a>
-           <a href="">ayuda</a>
-         </li>
-       </ul> 
-      </nav>
-      
-      <nav class="conte-footer">
-       <ul class="lis-conte">
-         <li>
-          <h1  class="contatar" >contactanos</h1>
-           <a href=""><i class="fa-regular fa-envelope" style="color: #ffffff;margin: 10px;"></i>correo</a>
-           <a href=""><i class="fa-brands fa-whatsapp" style="color: #ffffff;margin: 10px;"></i>whassap</a>
-
-           <a href=""><i class="fa-brands fa-facebook" style="color: #ffffff;margin: 10px;"></i></i>faccebook</a>
-           
-         </li>
-       </ul> 
-      </nav>
-      
-
-      
-    </footer>
+    <?php
+    include("footerpie.html");
+    ?>
     <script type="text/javascript">
       n=60
      

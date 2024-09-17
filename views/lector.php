@@ -74,7 +74,7 @@ if( $validar == null || $validar = ''){
 
 				<?php
 
-$conexion=mysqli_connect("localhost","root","","registrosss");               
+$conexion=mysqli_connect("localhost","root","","zonae");               
 $SQL="SELECT user.id, user.nombre, user.correo, user.fecha_reg, 
 user.contraseña, permisos.rol,bloqueo.estado FROM user
 LEFT JOIN permisos ON user.rol = permisos.id

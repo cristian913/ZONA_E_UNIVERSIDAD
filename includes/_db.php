@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "registrosss";
+$database = "zonae";
 
 
 $conexion = mysqli_connect($host, $user, $password, $database);

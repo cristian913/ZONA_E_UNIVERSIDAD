@@ -1,289 +1,142 @@
 <?php
-
 session_start();
 error_reporting(0);
 
 $validar = $_SESSION['correo'];
 
-if( $validar == null || $validar = ''){
-
-      header("Location:iniciosession.php");
+if ($validar == null || $validar == '') {
+    header("Location: iniciosession.php");
     die();
-    
-
 }
 
+$id = $_GET['id'];
+$conexion = mysqli_connect("localhost", "root", "", "zonae");
 
+if (!$conexion) {
+    die("Error en la conexión: " . mysqli_connect_error());
+}
 
-
-?>
-<?php
-$id= $_GET['id'];
-$conexion= mysqli_connect("localhost", "root", "", "registrosss");
-$consulta= "SELECT * FROM user WHERE id = $id";
+$consulta = "SELECT * FROM user WHERE id = $id";
 $resultado = mysqli_query($conexion, $consulta);
 $usuario = mysqli_fetch_assoc($resultado);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>perfil </title>
-	<link rel="stylesheet" type="text/css" href="css/usuario.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="./css/Usuario.css">
+    <link rel="stylesheet" href="./css/barra.css">
 </head>
 <body>
-	<script src="codigo/botones.js" defer></script>
-<form  action="includes/_functions.php" method="post">
-	
+    <?php include("barrausuario.php"); ?>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile">
+                
+                <img src="./includes/publicaciones/perfil_usuarios/<?php echo $usuario['id']; ?>/<?php echo $usuario['perfil']; ?>"onerror="this.src='./includes/publicaciones/perfil_usuarios/usuario.png'" width="60%" height="60%" style="border-radius: 50%;">
+                <form method="post" enctype="multipart/form-data">
+                    <input  type="submit" for="selImg" name="bot" class="form-label" value="subir">
+                <?php if ($mostrarInput) : ?>
+                    <input type="file" id="selImg" name="selImg" class="form-control">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <input type="submit" value="Guardar" name="fotoperfil" id="register" class="btn btn-success">
+                </form>
+                <?php endif; ?>
+                <?php
+                    if (isset($_POST['bot'])) {
+                     $mostrarInput = true; // Cambia esta variable según tu lógica
 
-<nav class="bloque1">
-<nav class="bloque_imagenperfil">
-	
+                        if ($mostrarInput) {
+                            echo '<input type="file" id="selImg" name="selImg" class="form-control">';
+                            echo '<input type="submit" value="Guardar" name="fotoperfil" id="register" class="btn btn-success">';
+                            header("Refresh:10; url = perfil.php?id=" . urlencode($id));
+                        }
+                        
+                    }
+                
 
-<form action="../includes/guardar_imagen.php">
-<input type="file" name="perfil">
-<input type="submit" name="guardar" value="guardar">
-<input type="hidden" value="<?php echo $id; ?>">
-</form>
-  
+                ?>
+                <?php
+                
 
-<h2>
-	<?php echo $usuario['nombre'];?>
-</h2>
-<h4>
-	<?php echo $usuario['tipo'];?>
-</h4>
-</nav>
+                if (isset($_POST['fotoperfil'])) {
+                    if ($_FILES["selImg"]["error"] > 0) {
+                        echo "Error al cargar el archivo";
+                    } else {
+                        $permitidos = array("image/png", "image/jpeg", "image/jpg");
+                        $limite = 800 * 2024; // 400 KB
 
- <nav class="mis_datos">
- 	<ul>
-		<li onclick="informacion()"><a>MIS DATOS</a></li>
-		<li  ><a>PROPIEDADES PUBLICADAS</a></li>
-		<li onclick="propiedadescompartidas()"><a>PROPIEDADES COMPARTIDAS</a></li>
-		<li><a>CERRAR SESSION</a></li>
-		
-					
+                        if (in_array($_FILES["selImg"]["type"], $permitidos) && $_FILES["selImg"]["size"] <= $limite) {
+                            $ruta = 'includes/publicaciones/perfil_usuarios/' . $id . '/';
 
-	</ul>
-	
-</nav>
+                            if (!file_exists($ruta)) {
+                                mkdir($ruta, 0777, true);
+                            }
 
-</nav>
-</form>
-<nav id="raiz" class="raiz">
-	<nav class="bloquepublicaciones" id="publicaciones">
-		<h1>PROPIEDADES PUBLICADAS</h1>
+                            $contador = 1;
+                            $extension = pathinfo($_FILES["selImg"]["name"], PATHINFO_EXTENSION);
 
-		
-	</nav>
-	<nav class="tuspublicaciones" id="tuspublicaciones">
-		
-		<nav class="aa">
-		<h1> TUS PROPIEDADES COMPARTIDAS</h1>
-		<a onclick="publicar()" >agregar</a>
-		</nav>
-		<form action="../includes/_functions.php" method="POST "></form>
-		<nav id="inf" class="inf" >
-			<div class="dis">
-			<label class="fo">direccion*</label>
-			<input type="text" name="direccion" id="direccion">	
-			</div>
-			<div class="dis">
-			<label class="fo">telefono*</label>
-			<input type="text" name="">	
-			</div>
-			<div class="dis">
-			<label class="fo">habitaciones*</label>
-			<input type="number" name="">	
-			</div>
-			<div class="dis">
-			<label class="fo">baños*</label>
-			<input type="number" name="">	
-			</div>
+                            do {
+                                $nombreImagen = $ruta . $contador . '.' . $extension;
+                                $perfil = $contador . '.' . $extension;
+                                $contador++;
+                            } while (file_exists($nombreImagen));
 
-			</div>
-			  <input type="hidden" name="accion" value="guardar_publicacion">
-     	 <input type="hidden" name="id" value="<?php echo $id;?>">
-     	   <button type="submit" class="btn btn-success" >guardar</button>
-		
-			
-			
+                            $resultado = move_uploaded_file($_FILES["selImg"]["tmp_name"], $nombreImagen);
 
-		</nav>
+                            if ($resultado) {
+                                $consulta = "UPDATE user SET perfil = '$perfil' WHERE id = '$id'";
+                                if (mysqli_query($conexion, $consulta)) {
+                                    echo "Perfil actualizado correctamente";
+                                   header("Refresh:2; url = perfil.php?id=" . urlencode($id));
+                                } else {
+                                    echo "Error al actualizar el perfil: " . mysqli_error($conexion);
+                                }
+                            } else {
+                                echo "Error: Archivo no guardado";
+                            }
+                        } else {
+                            echo "Archivo no permitido o excede el tamaño";
+                        }
+                    }
+                }
+                ?>
 
-		
-	</nav>
-	
-	
-<nav class="bloque2" id="informacion">
-	<form  action="includes/_functions.php" method="post">
-	<nav class="bloque_datos">
-	
-			<h2>DATOS PERSONALES</h2>
-		
-		<nav class="grup">
-			<label class="label">Nombres</label>
-			<input class="select" type="text" id="nombre" name="nombre" value="<?php echo $usuario['nombre'];?>" required>
-			
-		</nav>
-		<nav class="grup">
-			<label class="label">Apellidos</label>
-			<input class="select" type="text" name="apellido" id="apellido" value="<?php echo $usuario['apellido'];?>" required>
-			
-		</nav>
-		<nav class="grup">
-			<label class="label">Fecha Nacimiento</label>
-			<input class="select" type="text" name="fecha_nacimiento" id="fecha_nacimiento" value="<?php echo $usuario['fecha_nacimiento'];?>" required>
-			
-		</nav>
-		<nav class="grup">
-			<label class="label" for="lang">Genero</label>
-			<form action="#">
-			      <select class="select" name="genero"  id="lang">
-			      <option class="label_texto " ><?php echo $usuario['genero'];?></option>
-			        <option class="label_texto"  value="genero">MASCULINO</option>
-			        <option class="label_texto"  value="genero">PFEMENINO</option>
-			    
-			      </select>
-			      
-			</form>
-			
-		</nav>
-		<nav class="grup">
-			<form action="#">
-			      <label class="label" for="lang">Pais</label>
-			      <select class="select" name="pais" id="lang">
-			      <option class="label_texto "><?php echo $usuario['pais'];?></option>
-			        <option class="label_texto"  value="pais">Colombia</option>
-			        <option class="label_texto"  value="pais">Argentina</option>
-			        <option class="label_texto"  value="pais">Brasil</option>
-			        <option class="label_texto"  value="pais">Peru</option>
-			          <option class="label_texto"  value="pais">Venezuela</option>
-			    
-			      </select>
-			     
-			</form>
-			
-		</nav>
-		<nav class="grup">
-			<label class="label">Telefono</label>
-			<input class="select" type="text" name="telefono" id="telefono" value="<?php echo $usuario['telefono'];?>"required>
-			
-		</nav>
-		<nav class="grup">
-			<label class="label">Correo</label>
-			<input class="select" type="text" name="correo" value="<?php echo $usuario['correo'];?>" required>
-			
-		</nav>
-		<nav class="grup">
-			<form action="#">
-			      <label class="label" for="lang">tipo</label>
-			      <select class="select" name="genero" id="lang">
-			      <option class="label_texto "><?php echo $usuario['tipo'];?></option>
-			        <option class="label_texto"  value="genero">arrendador</option>
-			        <option class="label_texto"  value="genero">arrendatario</option>
-			        <option class="label_texto"  value="genero">arrendador y arrendatario</option>
-			    
-			      </select>
-			      
-			</form>
-			
-		</nav>
-		<nav class="grup">
-			<form action="#">
-			      <label class="label" for="lang">Centros Educativos</label>
-			      <select class="select" name="centro_educativo" id="lang">
-			      <option class="label_texto "><?php echo $usuario['centro_educativo'];?></option>
-			        <option class="label_texto"  value="centro_educativo">Itell</option>
-			        <option class="label_texto"  value="centro_educativo">Itey</option>
-			        <option class="label_texto"  value="centro_educativo">Centro Social</option>
-			        <option class="label_texto"  value="centro_educativo">Aliazna Pedagogica</option>
-			        <option class="label_texto"  value="centro_educativo">Ins Shakespeare y Cervantes</option>
-			        <option class="label_texto"  value="centro_educativo">Uniremington</option>
-			        <option class="label_texto"  value="centro_educativo">Unitropicio</option>
-			        <option class="label_texto"  value="centro_educativo">Universidad de la Salle</option>
-			        <option class="label_texto"  value="centro_educativo">Unisangil</option>
-			        <option class="label_texto"  value="centro_educativo">Uniminuto</option>
-			    
-			      </select>
-			      
-			</form>
-			
-		</nav>
-	</nav>
-	<nav class="bloque_notificacion">
-	
-		<h2>NOTIFICACIONES</h2>
-		
-		<nav class="grup">
-			<form action="#">
-			      <label class="label" for="lang">Nuevas Propiedades</label>
-			      <select class="select" name="lenguajes" id="lang">
-			      <option class="label_texto ">Seleccion</option>
-			        <option class="label_texto"  value="masculino">Casa</option>
-			        <option class="label_texto"  value="femenino">Apartamento</option>
-			        <option class="label_texto"  value="femenino">Apartaestudio</option>
-			        <option class="label_texto"  value="femenino">Habitacion de hotel</option>
+                <h2><?php echo $usuario['nombre']; ?> <?php echo $usuario['apellido']; ?></h2>
+                <h3>Arrendador</h3>
 
-			    
-			      </select>
-			      
-			</form>
-			
-		</nav>
-		<nav class="grup">
-		<form action="#">
-			      <label class="label" for="lang">Novedades</label>
-			      <select class="select" name="lenguajes" id="lang">
-			      <option class="label_texto ">Seleccion</option>
-			        <option class="label_texto"  value="masculino">Disponible</option>
-			        <option class="label_texto"  value="femenino">Arrendada</option>
-			    
-			      </select>
-			      
-			</form>
-			
-		</nav>
-		
-	</nav> 
-	<nav class="grup1">
-	<input type="hidden" name="accion" value="guardar_datos">
-      <input type="hidden" name="id" value="<?php echo $id;?>">
-	<input type="submit" value="guardar cambios">
+                
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="cargarContenido('tusdatos.php?id=<?php echo $id; ?>'); return false;">Mis Datos</a></li>
+                    <li><a href="#" onclick="cargarContenido('propiedadespublicadas.php?id=<?php echo $id; ?>'); return false;">Propiedades publicadas</a></li>
+                    <li><a href="#" onclick="cargarContenido('propiedadescompartidas.php?id=<?php echo $id; ?>'); return false;">Propiedades compartidas</a></li>
+                    <li><a href="#" onclick="cargarContenido('propiedadesguardadas.php?id=<?php echo $id; ?>'); return false;">Propiedades guardadas</a></li>
+                    <li><a href="#" onclick="cargarContenido('propiedadesvistas.php?id=<?php echo $id; ?>'); return false;">Propiedades vistas</a></li>
+                    <li><a href="logout.php">Cerrar sesión</a></li>
+                    <li><a href="#">Eliminar cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content" id="contenido">
+            <?php include("tusdatos.php"); ?>
+            <!-- El contenido dinámico se cargará aquí -->
+        </div>
+    </div>
 
-	</nav>
-  
-	
-</nav>
-</form>
-</nav>
-<script >
-	
-	function informacion(){
-		var informacion = document.getElementById("informacion");
-    	informacion.style.display = "block";
-    	var publicaciones = document.getElementById("publicaciones");
-    	publicaciones.style.display = "none";
+    <?php include("footerpie.html"); ?>
 
-    	
-		}
-	function propiedadescompartidas(){
-    	var publicaciones = document.getElementById("publicaciones");
-    	publicaciones.style.display = "none";
-    	var tuspublicaciones = document.getElementById("tuspublicaciones");
-    	tuspublicaciones.style.display = "block";
-
-    	
-		}
-		function publicar(){
-    	    	var tuspublicaciones = document.getElementById("inf");
-    		tuspublicaciones.style.display = "block";
-
-    	
-		}
-</script>
-
+    <script>
+    function cargarContenido(pagina) {
+        fetch(pagina)
+            .then(response => response.ok ? response.text() : Promise.reject('Error en la solicitud'))
+            .then(data => document.getElementById('contenido').innerHTML = data)
+            .catch(error => console.error(error));
+    }
+    </script>
 </body>
 </html>

@@ -12,6 +12,10 @@ if (isset($_POST['accion'])){
             editar_registro();
             break; 
 
+             case 'editar':
+            editar();
+            break;
+
             case 'guardar_datos';
             guardar_datos();
     
@@ -43,6 +47,7 @@ if (isset($_POST['accion'])){
 
     function editar_registro() {
 		$conexion=mysqli_connect("localhost","root","","registrosss");
+        
 		extract($_POST);
 		$consulta="UPDATE user SET nombre = '$nombre', correo = '$correo',
 		contraseña='$password', rol = '$rol' WHERE id = '$id' ";
@@ -52,6 +57,10 @@ if (isset($_POST['accion'])){
 
 		header('Location: ../views/user.php');
 
+
+
+}
+function editar() {
 
 }
     function guardar_datos() {
@@ -103,7 +112,7 @@ function acceso_user() {
 
     
 
-    $conexion=mysqli_connect("localhost","root","","registrosss");
+    $conexion=mysqli_connect("localhost","root","","zonae");
     $consulta= "SELECT * FROM user WHERE correo='$correo' AND contraseña='$contraseña'";
     $resultado=mysqli_query($conexion, $consulta);
     $filas=mysqli_fetch_array($resultado);

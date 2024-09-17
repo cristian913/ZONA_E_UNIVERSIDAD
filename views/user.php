@@ -79,7 +79,7 @@ if( $validar == null || $validar = ''){
 
 				<?php
 
-$conexion=mysqli_connect("localhost","root","","registrosss");               
+$conexion=mysqli_connect("localhost","root","","zonae");               
 $SQL="SELECT user.id, user.nombre, user.correo, user.fecha_reg,
 user.contraseña,user.perfil, permisos.rol,bloqueo.estado FROM user
 LEFT JOIN permisos ON user.rol = permisos.id
@@ -97,7 +97,7 @@ if($dato -> num_rows >0){
 <td><?php echo $fila['contraseña']; ?></td>
 <td><?php echo $fila['estado']; ?></td>
 <td><?php echo $fila['rol']; ?></td>
-<td><img src="../image/perfil_usuarios/<?php echo $fila['perfil']; ?>" onerror=this.src="../image/perfil_usuarios/usuario.png" width="50" 
+<td><img src="../includes/publicaciones/perfil_usuarios/<?php echo $fila['id']; ?>/<?php echo $fila['perfil']; ?>" onerror=this.src="../image/perfil_usuarios/usuario.png" width="50" 
 heigth="70"></td>
 
 

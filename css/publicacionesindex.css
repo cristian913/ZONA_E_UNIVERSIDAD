@@ -1,0 +1,165 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 15px;
+}
+
+/* Box Header */
+.box-header {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.box-header .user-block {
+    display: flex;
+    align-items: center;
+}
+
+.box-header .user-block img.img-circle {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.box-header .user-block .description {
+    font-size: 14px;
+    color: #333;
+}
+
+.box-header .user-block .description:first-child {
+    color: #3C8DBC;
+    cursor: pointer;
+}
+
+.box-tools {
+    float: right;
+}
+
+.box-tools .btn-box-tool {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Box Body */
+.box-body {
+    padding: 15px 0;
+}
+
+.box-body p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.box-body img {
+    border-radius: 5px;
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Social Sharing Buttons */
+.list-inline {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.list-inline li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.btn-like {
+    cursor: pointer;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    color: #333;
+}
+
+.btn-like i {
+    margin-right: 5px;
+}
+
+.pull-right {
+    float: right;
+}
+
+/* Box Footer */
+.box-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.box-comments {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.box-comment {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.box-comment img.img-circle {
+    height: 40px;
+    width: 40px;
+}
+
+.comment-text {
+    margin-left: 10px;
+    flex: 1;
+}
+
+.comment-text .username {
+    font-weight: bold;
+    display: block;
+}
+
+.comment-text .text-muted {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Comment Form */
+.enviar-btn {
+    width: calc(100% - 20px);
+    margin: 10px 0;
+}
+
+form label {
+    display: block;
+    width: 100%;
+}
+
+input[type="text"] {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Center text */
+.center {
+    text-align: center;
+}

@@ -10,53 +10,43 @@
 	<script defer src="codigo/codigo.js"></script>
 </head>
 <body>
-	<img src="./image/imagen.png" alt="" class="image" >
-<nav class="formu">
-	<nav class="ico">
-		<h1 class="titulo" >Iniciar session</h1>
-		<h1 class="titulo1">ZONA E</h1>
-		<i class="fa-solid fa-house" style="color: #082D5E;"></i>
-
-
-	</nav>
-	<nav class="conte">
-		<h1 class="titulo2" >registrate con tus redes sociales</h1>
-		<nav class="ico1">
-			<i class="fa-brands fa-square-facebook" style="color: #0457e7;"></i>
-			<i class="fa-solid fa-square-envelope" style="color: #005af5;"></i>
-
-		</nav>
-		<h1 class="titulo2">o ingresa los siguientes datos</h1>
-		
-
-
-	</nav>
-	<form class="formularios" action="./includes/_functions.php" method="post">
- 
+  <div class="container">
+    <img src="./image/imagen.png" alt="Imagen" class="image">
+    <nav class="formu">
+      <div class="ico">
+        <h1 class="titulo">Iniciar sesion</h1>
+        <h1 class="titulo1">ZONA E</h1>
+        <i class="fa-solid fa-house" style="color: #082D5E;"></i>
+      </div>
+      <div class="conte">
+        <h1 class="titulo2">Ingresas con tus redes sociales</h1>
+        <div class="ico1">
+          <i class="fa-brands fa-facebook" style="color: #0457e7; font-size: 30px;"></i>
+          <i class="fa-brands fa-google" style="color: #ea4335; font-size: 30px;"></i>
+        </div>
+        <h1 class="titulo2">O ingresa con tu correo electronico</h1>
+        
+      </div>
+      <form class="formularios" action="./includes/_functions.php" method="post">
         <div class="contenedor">
-            
-            <div class="input-contenedor">
-            
-                       
-                <input type="text" class="caja" name="correo" placeholder="correo electronico">
+          
+          <div class="input-contenedor">
+            <input type="text" class="caja" name="correo" placeholder="correo electronico">
+          </div>
+          <div class="input-contenedor">
+            <input type="password" class="caja" name="contraseña" placeholder="Contraseña">
+          </div>
+          <div class="buttons">
+                    <h1 >¿olvidaste tu contraseña?</h1>
+          </div>
+          <input type="hidden" name="accion" value="acceso_user">
+          <input type="submit" name="registrar" value="Iniciar sesion" class="botton">
+        </div>
+      </form>
 
-            </div>
-            <div class="input-contenedor">
-            
-              
-                <input type="password"  class="caja"name="contraseña"placeholder="contraseña">
-
-            </div>
-           
-              <input type="hidden" name="accion" value="acceso_user">
-               <input type="submit" name ="res" value="iniciar sesion" class="botton">
-            
-              
-                <p>¿no tienes cuenta?<a class="link" href="creausuario.php">registrarse</a></p>
-	 <a class="link" href="#">¿olvidaste tu contraseña?</a>
-	</form>
-</nav>	
- 
-
+      <p class="already-have-account">¿No tienes cuenta? <a class="link" href="creausuario.php">Registrarse</a></p>
+    </nav>
+  </div>
 </body>
+
 </html>

@@ -1,0 +1,427 @@
+/*parte del bloque 1 publica de manera facil*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.section-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.property-type {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.property-type div {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.property-type div:hover {
+    background-color: #f0f0f0;
+}
+.property-type img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+}
+.address {
+    margin-bottom: 20px;
+}
+.address select, .address input {
+    width: calc(50% - 10px);
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.address input {
+    width: calc(100% - 20px);
+}
+/*parte del bloque 2 informacion basica*/
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.header {
+    margin-bottom: 20px;
+}
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.header p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 20px 0;
+}
+.form-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.counter, .toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.counter input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+.counter-btn, .toggle-btn {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.counter-btn:hover, .toggle-btn:hover {
+    background-color: #ddd;
+}
+
+/*parte del bloque 3 fotografias y carracteristivcas del inmueble*/
+
+.container {
+    width: 100%;
+    max-width: 50%;
+    background-color: #ffffff;
+    padding: 80px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+.container h2 {
+    margin-bottom: 20px;
+    color: #333333;
+}
+.upload-btn {
+    background-color: #ff00cc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.property-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+.feature img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+.next-btn {
+    background-color: #ff00cc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/*********************************formularios mas datos de publicacion otra hoja o ventana************************************************/
+
+
+.conteinfo_publicacion {
+    max-width: 50%;
+    margin: 20px auto;
+    padding: 60px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+p {
+    margin-bottom: 20px;
+    color: #666;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+textarea {
+    height: 100px;
+}
+.price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.price-input {
+    display: flex;
+    align-items: center;
+}
+.price-input span {
+    background-color: #ff00cc;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+.price-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+.submit-btn {
+    background-color: #ff00cc;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.submit-btn:hover {
+    background-color: #e600b3;
+}
+
+
+/*estra de informacion de la publicacion******************/
+
+
+.apartamento-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.apartamento-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.apartamento-header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.apartamento-header p {
+    margin: 0;
+    font-size: 20px;
+    color: #666;
+}
+
+.apartamento-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.apartamento-info p, .apartamento-contact p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.apartamento-date {
+    font-size: 14px;
+    color: #999;
+}
+
+.apartamento-contact {
+    max-width: 300px;
+}
+
+.apartamento-contact-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.apartamento-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.apartamento-main-image img {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 10px;
+}
+
+.apartamento-thumbnails {
+    display: flex;
+    gap: 10px;
+}
+
+.apartamento-thumbnails img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.apartamento-services {
+    padding: 20px 0;
+}
+
+.apartamento-services h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.apartamento-services p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+
+.descripcion-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.descripcion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.descripcion-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.descripcion-toggle {
+    cursor: pointer;
+}
+
+.descripcion-text {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+.interes-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.interes-container h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.interes-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.interes-item {
+    width: calc(33.33% - 10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.interes-item i {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.interes-item p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}

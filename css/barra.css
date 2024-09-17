@@ -1,57 +1,44 @@
-/*estilos de la barra*/
+
 .conte_header {
-  position: fixed;
-  background-color: #082D5E;
-  height: 70px;
-  width: 100%;
-  float: top;
-  left: 0;
-  overflow:hidden;
-  z-index: 200;
+    background-color: #19217b;
+    padding: 20px 30px;
 }
 
 .conte_barra {
-  display: flex;
-  justify-content: space-between;
-  font-size: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center;
-}
-
-.nav-link {
-  font-size: 10px;
-  color: whitesmoke;
-  text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .ZONAE {
- width: flex;
+    color: white;
+    font-size: 40px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 .nav-menu {
-  display: flex;
-  margin-right: 40px;
-  list-style: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
 .menu-item {
-  font-size: 18px;
-  margin: 0 10px;
-  line-height: 80px;
-  text-transform: uppercase;
-  width: max-content;
+    margin-left: 45px;
 }
 
-.nav-menu-link {
-  padding: 8px 12px;
-  border-radius: 3px;
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
 }
 
-.nav-menu-link:hover,
 .nav-menu-link_active {
-  background-color: #FB3AC6;
-  transition: 0.5s;
+    background-color: #ff3c82;
+    padding: 10px 20px;
+    border-radius: 15px;
 }
 
 /* TOGGLE */
@@ -69,43 +56,57 @@
 
 
 /* footer pie*/
-footer{
-  display: flex;
-  position:relative;
-  background: #082D5E;
-  width: 100%;
-  height: 200px;
-  align-items: center;
-  margin-top: auto;
-  
-}
 
-.conte-footer{
-  margin-top: 10px;
-  position: absolute;
-  overflow: hidden;
-  right: 40px;
 
-}
-.conte-footer1{
-  position: absolute;
-  overflow: hidden;
-  right: 220px;
-}
-.con{
-  display: flex;
-  margin: 20px;
-  overflow: hidden;
- 
-}
-.lis-conte li a{
-  display: block;
-  font-size: 18px;
+footer {
+  background-color: #0a0a23;
   color: white;
+  padding: 40px 0;
+  text-align: left;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+}
+
+.con, .conte-footer1, .conte-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ZONAE {
   text-decoration: none;
-}
-.contatar{
-  margin-top: 10px;
   color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.lis-conte {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lis-conte li {
+  margin: 10px 0;
+}
+
+.lis-conte a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  margin: 5px 0;
+}
+
+.contatar {
   font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.fa-envelope, .fa-whatsapp, .fa-facebook {
+  margin-right: 10px;
 }
